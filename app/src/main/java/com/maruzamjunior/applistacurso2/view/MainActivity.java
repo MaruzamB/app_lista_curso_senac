@@ -9,9 +9,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.maruzamjunior.applistacurso2.R;
+import com.maruzamjunior.applistacurso2.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
+    Pessoa pessoa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +23,15 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+
+
         });
+        pessoa = new Pessoa();
+
+        pessoa.setPrimeiroNome("Maruzam");
+        pessoa.setSobrenome("Bueno");
+        pessoa.setCursoDesejado("Java");
+        pessoa.setTelefoneContato("99999");
     }
+
 }

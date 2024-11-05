@@ -1,6 +1,7 @@
 package com.maruzamjunior.applistacurso2.view;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         outraPessoa.setCursoDesejado("Python");
         outraPessoa.setTelefoneContato("88888");
 
-
+/*
         //pegar os dados
         dadosPessoa = "Primeiro Nome: ";
         dadosPessoa += pessoa.getPrimeiroNome();
@@ -67,8 +68,12 @@ public class MainActivity extends AppCompatActivity {
         dadosOutraPessoa += outraPessoa.getCursoDesejado();
         dadosOutraPessoa += " Telefone Contato: ";
         dadosOutraPessoa += outraPessoa.getTelefoneContato();
+ */
 
-        int parada = 0;
+
+
+        Log.i("PooAndroid", pessoa.toString());
+        Log.i("PooAndroid", outraPessoa.toString());
 
 
 

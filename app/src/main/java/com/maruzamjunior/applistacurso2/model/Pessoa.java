@@ -2,10 +2,10 @@ package com.maruzamjunior.applistacurso2.model;
 
 public class Pessoa {
 
-    private  String primeiroNome;
-    private  String sobrenome;
-    private  String cursoDesejado;
-    private  String telefoneContato;
+    private String primeiroNome;
+    private String sobrenome;
+    private String cursoDesejado;
+    private String telefoneContato;
 
     public Pessoa() {
     }

@@ -14,9 +14,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.maruzamjunior.applistacurso2.R;
+import com.maruzamjunior.applistacurso2.controller.PessoaController;
 import com.maruzamjunior.applistacurso2.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
+
+    PessoaController controller;
 
     Pessoa pessoa;
     Pessoa outraPessoa;
@@ -42,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
 
         });
+
+        controller = new PessoaController();
+        controller.toString();
 
         pessoa = new Pessoa();
         pessoa.setPrimeiroNome("Maruzam");
@@ -92,10 +98,14 @@ public class MainActivity extends AppCompatActivity {
                 pessoa.setCursoDesejado(editCursoDesejado.getText().toString());
                 pessoa.setTelefoneContato(editTelefone.getText().toString());
 
+
                 Toast.makeText(MainActivity.this,
                         "Dados Salvo" + pessoa.toString(),
 
                         Toast.LENGTH_LONG).show();
+
+
+                controller.salvar(pessoa);
 
             }
         });

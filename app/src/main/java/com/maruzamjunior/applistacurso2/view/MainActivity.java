@@ -1,5 +1,6 @@
 package com.maruzamjunior.applistacurso2.view;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.maruzamjunior.applistacurso2.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
+    SharedPreferences preferences;
+    public static final String NOME_PREFRENCES = "pref_listavip";
     PessoaController controller;
 
     Pessoa pessoa;
@@ -45,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
 
         });
+
+        preferences = getSharedPreferences(NOME_PREFRENCES, 0);
+        SharedPreferences.Editor listaVip = preferences.edit();
 
         controller = new PessoaController();
         controller.toString();
@@ -101,8 +107,14 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(MainActivity.this,
                         "Dados Salvo" + pessoa.toString(),
-
                         Toast.LENGTH_LONG).show();
+
+                listaVip.putString("primeiroNome", pessoa.getPrimeiroNome());
+                listaVip.putString("sobreNome", pessoa.getSobrenome());
+                listaVip.putString("cursoDesejado", pessoa.getCursoDesejado());
+                listaVip.putString("telefoneContato",pessoa.getTelefoneContato());
+
+                listaVip.apply();
 
 
                 controller.salvar(pessoa);

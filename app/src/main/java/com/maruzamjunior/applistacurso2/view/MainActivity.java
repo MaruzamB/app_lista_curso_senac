@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     PessoaController controller;
 
     Pessoa pessoa;
-    Pessoa outraPessoa;
 
     EditText editPrimeiroNome;
     EditText editSobreNome;
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     Button btnLimpar;
     Button btnSalvar;
     Button btnFinalizar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,27 +54,25 @@ public class MainActivity extends AppCompatActivity {
         controller.toString();
 
         pessoa = new Pessoa();
-        pessoa.setPrimeiroNome("Maruzam");
-        pessoa.setSobrenome("Bueno");
-        pessoa.setCursoDesejado("Java");
-        pessoa.setTelefoneContato("99999");
 
-        outraPessoa = new Pessoa();
+        pessoa.setPrimeiroNome(preferences.getString("primeiroNome", ""));
+        pessoa.setSobrenome(preferences.getString("sobreNome", ""));
+        pessoa.setCursoDesejado(preferences.getString("cursoDesejado", ""));
+        pessoa.setTelefoneContato(preferences.getString("telefoneContato", ""));
 
         editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
         editSobreNome = findViewById(R.id.editSobreNome);
         editCursoDesejado = findViewById(R.id.editCursoDesejado);
         editTelefone = findViewById(R.id.editTelefone);
 
-        btnLimpar = findViewById(R.id.btnLimpar);
-        btnSalvar = findViewById(R.id.btnSalvar);
-        btnFinalizar = findViewById(R.id.btnFinalizar);
-
         editPrimeiroNome.setText(pessoa.getPrimeiroNome());
         editSobreNome.setText(pessoa.getSobrenome());
         editCursoDesejado.setText(pessoa.getCursoDesejado());
         editTelefone.setText(pessoa.getTelefoneContato());
 
+        btnLimpar = findViewById(R.id.btnLimpar);
+        btnSalvar = findViewById(R.id.btnSalvar);
+        btnFinalizar = findViewById(R.id.btnFinalizar);
 
         btnLimpar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Log.i("PooAndroid", pessoa.toString());
-        Log.i("PooAndroid", outraPessoa.toString());
+
 
     }
 
